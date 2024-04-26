@@ -10,8 +10,8 @@ import { map } from 'rxjs/operators';
 })
 export class PostDetailsPage implements OnInit {
   data;
-  url: string = 'https://swift-footed-config.000webhostapp.com/'
-  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient, ) {
+  url: string = 'https://psd2web.in/'
+  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient,) {
     let id = this.route.snapshot.paramMap.get('postId');
     this.getPostDetails(id).subscribe(res => {
       this.data = res;

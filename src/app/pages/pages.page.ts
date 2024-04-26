@@ -1,18 +1,14 @@
-//home.page.ts
 import { Component } from '@angular/core';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 
 import { Router } from '@angular/router';
-
-
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-pages',
+  templateUrl: './pages.page.html',
+  styleUrls: ['./pages.page.scss'],
 })
-export class HomePage {
-
+export class PagesPage {
   url: string = 'https://psd2web.in/'
   items: any = []
   page: any = 1;
@@ -33,7 +29,7 @@ export class HomePage {
       await loading.present();
     }
 
-    const route = this.url + 'wp-json/wp/v2/posts'
+    const route = this.url + 'wp-json/wp/v2/pages'
     // set pagination
     if (!page) {
       page = '1';
@@ -103,7 +99,5 @@ export class HomePage {
   goToPostDetails(post) {
     this.Router.navigate([`post-details/${post.id}`]);
   }
+
 }
-
-
-
