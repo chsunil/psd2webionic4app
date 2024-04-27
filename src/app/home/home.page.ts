@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 import { Router } from '@angular/router';
 
@@ -49,8 +50,9 @@ export class HomePage {
       } else {
         concat = '?';
       }
+      // Modify the API request to include the '_embed' parameter to fetch embedded data, including thumbnails
 
-      this.http.get(route + concat + 'page=' + page)
+      this.http.get(route + concat + 'page=' + page + '&_embed')
         .subscribe(data => {
 
           if (showLoading) {

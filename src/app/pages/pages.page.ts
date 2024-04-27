@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastController, LoadingController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-pages',
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class PagesPage {
   url: string = 'https://psd2web.in/'
+  // call url from environment file
+  // url: string = environment.baseUrl;
   items: any = []
   page: any = 1;
   constructor(
@@ -96,8 +98,8 @@ export class PagesPage {
 
   }
 
-  goToPostDetails(post) {
-    this.Router.navigate([`post-details/${post.id}`]);
+  goToPageDetails(page) {
+    this.Router.navigate([`pagedetails/${page.id}`]);
   }
 
 }
