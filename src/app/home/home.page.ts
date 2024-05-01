@@ -1,7 +1,7 @@
 //home.page.ts
 import { Component } from '@angular/core';
 import { ToastController, LoadingController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 import { Router } from '@angular/router';
@@ -18,7 +18,7 @@ export class HomePage {
   items: any = []
   page: any = 1;
   constructor(
-    public http: HttpClient,
+    public http: HttpClientModule,
     public Router: Router,
     public toastCtrl: ToastController,
     public loadingController: LoadingController
@@ -60,6 +60,8 @@ export class HomePage {
           }
           this.items = data;
           resolve(this.items);
+          console.log("🚀 ~ HomePage ~ returnnewPromise ~ items:", this.items)
+
         },
           error => {
             if (showLoading) {
@@ -69,6 +71,7 @@ export class HomePage {
             this.presentToast(error.error.message)
           })
     });
+
   }
   doRefresh(event) {
     this.loadPost(this.url, 1, false).then(() => {

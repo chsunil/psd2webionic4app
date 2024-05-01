@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ToastController, LoadingController } from '@ionic/angular';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-pages',
@@ -15,7 +15,7 @@ export class PagesPage {
   items: any = []
   page: any = 1;
   constructor(
-    public http: HttpClient,
+    public http: HttpClientModule,
     public Router: Router,
     public toastCtrl: ToastController,
     public loadingController: LoadingController

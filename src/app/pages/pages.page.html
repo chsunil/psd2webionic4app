@@ -16,10 +16,12 @@
     <ion-item *ngFor="let item of items" (click)="goToPageDetails(item)">
 
       <ion-avatar item-left *ngIf="item.featured_image_urls">
-        <img *ngIf="item.featured_image_urls && item.featured_image_urls.thumbnail"
-          src="{{item.featured_image_urls.thumbnail}}">
-        <img *ngIf="!item.featured_image_urls || !item.featured_image_urls.thumbnail" src="assets/default.png">
+        <!-- <!-- <img *ngIf="item.featured_image_urls && item.featured_image_urls.thumbnail"
+          src="{{item.featured_image_urls.thumbnail.rendered}}"> -->
+        <!-- <img *ngIf="!item.featured_image_urls || !item.featured_image_urls.thumbnail" src="assets/default.png"> -->
+        -->
       </ion-avatar>
+
       <div>
         <h2 *ngIf="item.title && item.title.rendered" [innerHTML]="item.title.rendered"></h2>
 

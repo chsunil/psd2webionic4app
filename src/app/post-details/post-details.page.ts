@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -11,7 +12,7 @@ import { map } from 'rxjs/operators';
 export class PostDetailsPage implements OnInit {
   data;
   url: string = 'https://psd2web.in/'
-  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClient,) {
+  constructor(private route: ActivatedRoute, private router: Router, public http: HttpClientModule,) {
     let id = this.route.snapshot.paramMap.get('postId');
     this.getPostDetails(id).subscribe(res => {
       this.data = res;
