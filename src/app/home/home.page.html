@@ -5,15 +5,10 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content padding text-center>
   <ion-refresher (ionRefresh)="doRefresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-
-
-
-
   <ion-list class="post-list">
     <ion-item *ngFor="let item of items" (click)="goToPostDetails(item)">
 

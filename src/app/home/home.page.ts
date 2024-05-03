@@ -1,7 +1,7 @@
 //home.page.ts
 import { Component } from '@angular/core';
 import { ToastController, LoadingController } from '@ionic/angular';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 import { Router } from '@angular/router';
@@ -18,7 +18,7 @@ export class HomePage {
   items: any = []
   page: any = 1;
   constructor(
-    public http: HttpClientModule,
+    public http: HttpClient,
     public Router: Router,
     public toastCtrl: ToastController,
     public loadingController: LoadingController
@@ -28,7 +28,7 @@ export class HomePage {
   }
   async loadPost(url: string, page, showLoading) {
     const loading = await this.loadingController.create({
-      message: 'Loading Your posts'
+      message: 'Loading'
     });
     if (showLoading) {
       await loading.present();
